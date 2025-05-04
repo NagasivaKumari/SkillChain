@@ -1,0 +1,106 @@
+.student-dashboard {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.student-dashboard h1 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.student-dashboard p {
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+.dashboard-section {
+  margin-bottom: 2.5rem;
+}
+
+.dashboard-section h2 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.enrolled-courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.enrolled-course-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 1.5rem;
+  min-width: 260px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.enrolled-course-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.enrolled-course-card p {
+  margin-bottom: 1rem;
+  color: #7f8c8d;
+}
+
+.certificates-list {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.certificate-card.placeholder {
+  background: #f0f4f8;
+  border: 1px dashed #b2bec3;
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: #636e72;
+  min-width: 220px;
+}
+
+input[type="file"] {
+  margin-bottom: 0.5rem;
+}
+
+.small-text {
+  font-size: 0.95rem;
+  color: #b2bec3;
+}
+
+.btn.btn-primary {
+  background-color: #3498db;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+  border: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.btn.btn-primary:hover {
+  background-color: #217dbb;
+}
+
+.success-message {
+  color: #27ae60;
+  background: #eafaf1;
+  border: 1px solid #b2f2d7;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+} 
