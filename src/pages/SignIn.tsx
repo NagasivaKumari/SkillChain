@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAlgorand } from '../contexts/AlgorandContext';
-import './Signup.css';
 
-const SignUp: React.FC = () => {
+const SignIn: React.FC = () => {
   const navigate = useNavigate();
-  const { createAccount } = useAlgorand();
+  const { connectWallet } = useAlgorand();
   const [formData, setFormData] = useState({
-    fullName: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   });
   const [error, setError] = useState('');
 
@@ -26,25 +23,13 @@ const SignUp: React.FC = () => {
     e.preventDefault();
     setError('');
 
-    // Basic validation
-    if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-
-    if (formData.password.length < 8) {
-      setError('Password must be at least 8 characters long');
-      return;
-    }
-
     try {
-      // Create Algorand account
-      await createAccount();
-      // In a real app, you would also create a user account in your backend
+      // In a real app, you would verify credentials with your backend
+      await connectWallet();
       navigate('/dashboard');
     } catch (err) {
-      setError('Failed to create account. Please try again.');
-      console.error('Signup error:', err);
+      setError('Invalid email or password');
+      console.error('Sign in error:', err);
     }
   };
 
@@ -52,7 +37,7 @@ const SignUp: React.FC = () => {
     <div className="section" style={{ backgroundColor: 'var(--light-gray)' }}>
       <div className="container">
         <div style={{ maxWidth: '500px', margin: '0 auto', backgroundColor: 'white', padding: '2rem', borderRadius: '0.5rem', boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)' }}>
-          <h2 className="text-center mb-4">Create Your Account</h2>
+          <h2 className="text-center mb-4">Sign In to Your Account</h2>
           
           {error && (
             <div style={{ 
@@ -67,19 +52,6 @@ const SignUp: React.FC = () => {
           )}
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="fullName">Full Name</label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                className="form-input"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
             <div className="form-group">
               <label className="form-label" htmlFor="email">Email</label>
               <input
@@ -106,34 +78,32 @@ const SignUp: React.FC = () => {
               />
             </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                className="form-input"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
+            <div className="form-group" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <Link to="/forgot-password" style={{ color: 'var(--primary-color)' }}>
+                Forgot Password?
+              </Link>
             </div>
 
             <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-              Create Account
+              Sign In
             </button>
           </form>
 
-          <p className="text-center mt-3">
-            Already have an account?{' '}
-            <Link to="/signin" style={{ color: 'var(--primary-color)' }}>
-              Sign In
-            </Link>
-          </p>
+          <div className="text-center mt-3">
+            <p>Don't have an account?{' '}
+              <Link to="/signup" style={{ color: 'var(--primary-color)' }}>
+                Sign Up
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default SignUp; 
+export default SignIn; 
