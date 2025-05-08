@@ -1,40 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import ForgotPassword from './pages/ForgotPassword';
-import ResetPassword from './pages/ResetPassword';
-import Courses from './pages/Courses';
-import StudentDashboard from './pages/StudentDashboard';
-import CoursePlayer from './pages/CoursePlayer';
-import RecruiterDashboard from './pages/RecruiterDashboard';
-import './App.css';
+const Dashboard = () => <div>Dashboard (placeholder)</div>;
+const NotFound = () => <div>404 Not Found (placeholder)</div>;
+const CourseList = () => <div>Course List (placeholder)</div>;
+const CoursePlayer = () => <div>Course Player (placeholder)</div>;
+const Exam = () => <div>Exam (placeholder)</div>;
+const ClaimCertificate = () => <div>Claim Certificate (placeholder)</div>;
+const CertificateList = () => <div>Certificate List (placeholder)</div>;
 
-function App() {
-  return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/dashboard" element={<StudentDashboard />} />
-            <Route path="/course-player/:videoId" element={<CoursePlayer />} />
-            <Route path="/recruiter-dashboard" element={<RecruiterDashboard />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
-  );
-}
+const App: React.FC = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/courses" element={<CourseList />} />
+      <Route path="/course/:id" element={<CoursePlayer />} />
+      <Route path="/exam/:courseId" element={<Exam />} />
+      <Route path="/claim-certificate/:courseId" element={<ClaimCertificate />} />
+      <Route path="/certificates" element={<CertificateList />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </Router>
+);
 
 export default App;

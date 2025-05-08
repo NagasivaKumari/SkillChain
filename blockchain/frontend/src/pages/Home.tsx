@@ -1,43 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Home.css';
 
-const Home: React.FC = () => {
-  return (
-    <div className="home">
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Welcome to SkillChain</h1>
-          <p>Learn, verify, and showcase your skills with blockchain technology</p>
-          <div className="hero-buttons">
-            <Link to="/courses" className="btn btn-primary">Explore Courses</Link>
-            <Link to="/signup" className="btn btn-secondary">Get Started</Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="features">
-        <h2>Why Choose SkillChain?</h2>
-        <div className="features-grid">
-          <div className="feature-card">
-            <div className="feature-icon">🔗</div>
-            <h3>Blockchain Verified</h3>
-            <p>Your skills and achievements are securely stored on the blockchain</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">🎓</div>
-            <h3>Quality Courses</h3>
-            <p>Learn from industry experts and top educators</p>
-          </div>
-          <div className="feature-card">
-            <div className="feature-icon">💼</div>
-            <h3>Career Ready</h3>
-            <p>Get noticed by employers with verifiable credentials</p>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
-};
+const Home: React.FC = () => (
+  <div style={{ padding: '2rem', maxWidth: 900, margin: '0 auto' }}>
+    <h1>Welcome to SkillChain</h1>
+    <p>
+      <b>SkillChain</b> is a next-generation platform for skill certification and verification, powered by blockchain technology. Our mission is to make skill credentials tamper-proof, instantly verifiable, and globally recognized.
+    </p>
+    <h2>Why SkillChain?</h2>
+    <ul>
+      <li><b>Blockchain Certificates:</b> All certifications are issued as digital assets on the Algorand blockchain, ensuring authenticity and security.</li>
+      <li><b>Easy Verification:</b> Employers and institutions can instantly verify your skills and credentials online.</li>
+      <li><b>Transparent Progress:</b> Track your learning journey, complete courses, take exams, and earn certificates that truly belong to you.</li>
+      <li><b>Shareable Achievements:</b> Add your certificates to LinkedIn, share on social media, or download as a PDF.</li>
+    </ul>
+    <p style={{marginTop: '2rem'}}><b>Get started by signing up or logging in above!</b></p>
+  </div>
+);
 
 export default Home; 

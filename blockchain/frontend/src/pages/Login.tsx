@@ -37,7 +37,7 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h2>Login to SkillChain</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Log in to continue your learning journey</h2>
         {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -60,28 +60,17 @@ const Login: React.FC = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="userType">User Type</label>
-            <select
-              id="userType"
-              value={userType}
-              onChange={(e) => setUserType(e.target.value)}
-            >
-              <option value="student">Student</option>
-              <option value="recruiter">Recruiter</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="rememberMe">Remember Me</label>
-            <input
-              type="checkbox"
-              id="rememberMe"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Login
+          <button type="submit" className="btn btn-primary" style={{ marginBottom: '1rem' }}>
+            Continue with email
+          </button>
+          <div style={{ textAlign: 'center', margin: '1rem 0' }}>or</div>
+          <button
+            type="button"
+            className="btn btn-primary"
+            style={{ background: '#4285F4', color: '#fff', border: 'none', marginBottom: '1rem' }}
+            onClick={() => alert('Google login coming soon!')}
+          >
+            <span style={{ marginRight: 8 }}>G</span> Continue with Google
           </button>
           <div className="form-footer">
             <Link to="/forgot-password">Forgot Password?</Link>

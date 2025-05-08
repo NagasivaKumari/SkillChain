@@ -46,7 +46,7 @@ const Signup: React.FC = () => {
   return (
     <div className="signup-container">
       <div className="signup-form">
-        <h2>Create an Account</h2>
+        <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>Sign up and start learning</h2>
         {error && <div className="error-message">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -106,8 +106,17 @@ const Signup: React.FC = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Sign Up
+          <button type="submit" className="btn btn-primary" style={{ marginBottom: '1rem' }}>
+            Continue with email
+          </button>
+          <div style={{ textAlign: 'center', margin: '1rem 0' }}>or</div>
+          <button
+            type="button"
+            className="btn btn-primary"
+            style={{ background: '#4285F4', color: '#fff', border: 'none', marginBottom: '1rem' }}
+            onClick={() => alert('Google signup coming soon!')}
+          >
+            <span style={{ marginRight: 8 }}>G</span> Continue with Google
           </button>
           <div className="form-footer">
             <p>
